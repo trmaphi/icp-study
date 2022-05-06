@@ -13,9 +13,9 @@ f is faulty replica
 - BLS (t,n)-threshold signature scheme (TSS) - (N-f, N)
 - Random oracles and BLS schema aggeration creating random beacon, which contain ranking of shares
 - 4 components
-    +   Block Making - random sealing
-    +   Notarization - block production alternative based on ranking
-    +   Random Beacon - agree on randomness (randomness is nondeterminitic)
+    +   Block Making - batching messages into a blocks and boardcast as proposal
+    +   Notarization - block sealing with TSS shares
+    +   Random Beacon - agreement on randomness, to create production ranking and reduce notarization
     +   Finalization - asynchrous process, when a sub-chain is finalized (logic gate operations)
 
 # 3. Components
@@ -61,3 +61,7 @@ finality-sign is sign a share of finalization share
         5. At least N-2f replicas did not notary-sign any height H block other than B (by 2 and 3)
         6. A full notarization requires N-f notarization-shares (by TSS)
         7. The N-(N-2f) < N-f remaning replicas that may have notary-signed height H block B' are not sufficent to reach the notarization threshold of N-f (by 4 and 5)
+
+# 4. References
+
+[1] https://github.com/dfinity/ic/blob/master/rs/consensus/src/consensus/random_beacon_maker.rs
