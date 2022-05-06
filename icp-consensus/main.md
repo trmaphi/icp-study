@@ -8,7 +8,7 @@
 N is total replicate in a subnet
 f is faulty replica
 
-- N = 3f + 1 -> Byzantine Fault Tolerance
+- N = 3f + 1 OR f < N / 3-> Byzantine Fault Tolerance
 - BLS (t,n)-threshold signature scheme (TSS) - (N-f, N)
 - Random oracles and BLS schema aggeration creating random beacon, which contain ranking of shares
 - 4 components
@@ -53,9 +53,10 @@ finality-sign is sign a share of finalization share
     ![image info](finalization.png)
     +   A full finalization constructed with threshold (N-f, N)
     +   Finalization proof is a logical proof states "on heigh H block B, that no other notarized block B' at height H exists)
-        1. A full finalization on b requires N-f replicas to finality-sign (by TSS)
-        2. At least N-2f of the N-f replicas that finality-signed b must be honest (by assumption that =< f replicas are corrupt)
-        3. An honest replica that finality-signed B did not notary-sign any height H block other than B (by TSS)
-        4. At least N-2f replicas did not notary-sign any height H block other than B (by 2 and 3)
-        5. A full notarization requires N-f notarization-shares (by TSS)
-        6. The N-(N-2f) < N-f remaning replicas that may have notary-signed height H block B' are not sufficent to reach the notarization threshold of N-f (by 4 and 5)
+        1. Replicas are Byzantine Fault Tolerance, f < N / 3, N is total replicate in a subnet, f is faulty replica.
+        2. A full finalization on b requires N-f replicas to finality-sign (by TSS)
+        3. At least N-2f of the N-f replicas that finality-signed b must be honest (by assumption that =< f replicas are corrupt)
+        4. An honest replica that finality-signed B did not notary-sign any height H block other than B (by TSS)
+        5. At least N-2f replicas did not notary-sign any height H block other than B (by 2 and 3)
+        6. A full notarization requires N-f notarization-shares (by TSS)
+        7. The N-(N-2f) < N-f remaning replicas that may have notary-signed height H block B' are not sufficent to reach the notarization threshold of N-f (by 4 and 5)
