@@ -1,11 +1,12 @@
-1. Termilogy:
+# 1. Termilogy:
 
 - Consensus on subnet
 - Messages -> transactions
 - Replica -> block producer / block validator
 
-2. Building blocks:
+# 2. Building blocks:
 N is total replicate in a subnet
+
 f is faulty replica
 
 - N = 3f + 1 OR f < N / 3-> Byzantine Fault Tolerance
@@ -17,7 +18,7 @@ f is faulty replica
     +   Random Beacon - agree on randomness (randomness is nondeterminitic)
     +   Finalization - asynchrous process, when a sub-chain is finalized (logic gate operations)
 
-3. Components
+# 3. Components
 Notarization share is the share in the aggerated signature of BLS (full notarization)
 Size of aggerated signature is small
 
